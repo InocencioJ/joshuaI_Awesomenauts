@@ -5,11 +5,13 @@ game.PlayScreen = me.ScreenObject.extend({
 	onResetEvent: function() {
 		// reset the score
 		game.data.score = 0;
-                
+                /*it tells the program to load the map level01*/
                 me.levelDirector.loadLevel("level01");
-                
-                var player = mme.pool.pull("player", 0, 420, {});
+                /*the player will spawn at the x-axis of 0 and y-axis of 420*/
+                var player = me.pool.pull("player", 0, 420, {});
                 me.game.world.addChild(player, 5);
+                
+                me.input.bindKey(me.input.KEY.RIGHT, "right");
 
 		// add our HUD to the game world
 		this.HUD = new game.HUD.Container();
@@ -17,9 +19,9 @@ game.PlayScreen = me.ScreenObject.extend({
 	},
 
 
-	/**
-	 *  action to perform when leaving this screen (state change)
-	 */
+	
+	// action to perform when leaving this screen (state change)
+	 
 	onDestroyEvent: function() {
 		// remove the HUD from the game world
 		me.game.world.removeChild(this.HUD);

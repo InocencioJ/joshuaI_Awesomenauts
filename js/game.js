@@ -39,7 +39,8 @@ var game = {
 
 	// Run on game resources loaded.
 	"loaded" : function () {
-                me.pool.register("player", game.PlayerEntity, true)
+            /*this code loads the player*/
+                me.pool.register("player", game.PlayerEntity, true);
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
