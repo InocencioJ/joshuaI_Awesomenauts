@@ -21,7 +21,7 @@ game.resources = [
 	 * {name: "example01", type: "tmx", src: "data/map/example01.json"},
  	 */
         /*this code allow the player to connect their maps too their progam*/
-        {name: "level01", type: "tmx", src: "data/map/test.tmx"}
+        {name: "level01", type: "tmx", src: "data/map/map-test1.tmx"}
 
 
 	/* Background music. 
