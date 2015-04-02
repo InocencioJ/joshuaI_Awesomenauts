@@ -7,9 +7,8 @@ game.PlayScreen = me.ScreenObject.extend({
 		game.data.score = 0;
                 /*it tells the program to load the map level01*/
                 me.levelDirector.loadLevel("level01");
-                /*the player will spawn at the x-axis of 0 and y-axis of 420*/
-                var player = me.pool.pull("player", 0, 420, {});
-                me.game.world.addChild(player, 5);
+               
+               this.resetPlayer(0, 420);
                 
                 var gamemanager = me.pool.pull("GameManager", 0, 0, {});
                 me.game.world.addChild(gamemanager, 0);
@@ -23,13 +22,17 @@ game.PlayScreen = me.ScreenObject.extend({
 		this.HUD = new game.HUD.Container();
 		me.game.world.addChild(this.HUD);
 	},
-
-
 	
 	// action to perform when leaving this screen (state change)
 	 
 	onDestroyEvent: function() {
 		// remove the HUD from the game world
 		me.game.world.removeChild(this.HUD);
-	}
+	},
+        
+        resetPlayer: function(x, y){
+            /*the player will spawn at the x-axis of 0 and y-axis of 420*/
+                game.data.player = me.pool.pull("player", x, y, {});
+                me.game.world.addChild(game.data.player, 5);
+        }
 });
