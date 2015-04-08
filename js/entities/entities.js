@@ -2,7 +2,7 @@ game.PlayerEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y);
         this.setPlayerTimers();
-        this.setAttibutes();
+        this.setAttributes();
         this.type = "PlayerEntity";
         this.setFlags();
        
@@ -54,7 +54,7 @@ game.PlayerEntity = me.Entity.extend({
     
     update: function(delta){
          this.now = new Date().getTime();
-         this.dead = checkIfDead();
+         this.dead = this.checkIfDead();
          this.checkKeyPressesAndMove();
          this.setAnimation();
         me.collision.check(this, true, this.collideHandler.bind(this), true);
@@ -139,7 +139,7 @@ game.PlayerEntity = me.Entity.extend({
        }
     },
     
-    collideWithEnemy: function(response){
+    collideWithEnemyBase: function(response){
         var ydif = this.pos.y - response.b.pos.y;
             var xdif = this.pos.x - response.b.pos.x;
             
