@@ -8,6 +8,10 @@ game.PlayScreen = me.ScreenObject.extend({
                 //it tells the program to load the map level01*/
                 me.levelDirector.loadLevel("level01");
                
+               
+        console.log(game.data.exp);
+        console.log(game.data.exp2);
+               
                this.resetPlayer(0, 420);
                 
                 var gameTimerManager = me.pool.pull("GameTimerManager", 0, 0, {});
