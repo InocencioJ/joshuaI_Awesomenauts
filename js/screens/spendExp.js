@@ -33,7 +33,7 @@ game.SpendExp = me.ScreenObject.extend({
                     if(action === "F1"){
                         if(game.data.exp >= exp1cost){
                        game.data.exp1 += 1;
-                       game.data.exp -= exp1cost
+                       game.data.exp -= exp1cost;
                        me.state.change(me.state.PLAY);
                    }else{
                        console.log("not enough experience");

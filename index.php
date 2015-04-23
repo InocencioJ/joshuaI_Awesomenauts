@@ -15,8 +15,25 @@
 	<body>
 		<!-- Canvas placeholder -->
 		<div id="screen"></div>
-
-		<!-- melonJS Library -->
+                
+                <form id="input" methods="post">
+                    <div class="field">
+                        <lable for="username">Username</lable>
+                        <input type='text' name='username' id='username' autocomplete='off'>
+          
+                    </div>
+                    
+                    <div class='password'>
+                        <label for='password'>Password</label>
+                        <input type='text' name='password' id='password'>
+                    </div>
+                    
+                    <button type='button' id='register'>Register</button>
+                    <button type='button' id='load'>Load</button>
+                    <button type='button' id='mainmenu'>Main Menu</button>
+                </form>
+                      
+         	<!-- melonJS Library -->
 		<!-- build:js js/app.min.js -->
 		<script type="text/javascript" src="lib/melonJS-1.1.0-min.js"></script>
 
