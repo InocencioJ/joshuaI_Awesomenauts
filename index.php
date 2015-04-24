@@ -16,7 +16,7 @@
 		<!-- Canvas placeholder -->
 		<div id="screen"></div>
                 
-                <form id="input" methods="post">
+                <form id="input" method="post">
                     <div class="field">
                         <lable for="username">Username</lable>
                         <input type='text' name='username' id='username' autocomplete='off'>

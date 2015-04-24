@@ -7,7 +7,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 
                 me.game.world.addChild(new (me.Renderable.extend({
                     init: function(){
-                        this._super(me.Renderable, 'init', [270, 240, me.game.viewport.width, me.game.viewport.height]);
+                        this._super(me.Renderable, 'init', [270, 240, 300, 50]);
                         this.font = new me.Font("Arial", 46, "white");
                         me.input.registerPointerEvent('pointerdown', this, this.newGame.bind(this), true);
                     },
@@ -22,7 +22,7 @@ game.TitleScreen = me.ScreenObject.extend({
                     
                     newGame: function(){
                         me.input.registerPointerEvent('pointerdown', this);
-                        me.state.change(me.state.LOAD);
+                        me.state.change(me.state.NEW);
                     }
                 })));
                 
@@ -43,7 +43,7 @@ game.TitleScreen = me.ScreenObject.extend({
                     
                     newGame: function(){
                         me.input.registerPointerEvent('pointerdown', this);
-                        me.state.change(me.state.NEW);
+                        me.state.change(me.state.LOAD);
                     }
                 })));
         

@@ -5,6 +5,9 @@ game.LoadProfile = me.ScreenObject.extend({
 	onResetEvent: function() {	
 		me.game.world.addChild(new me.Sprite(0, 0, me.loader.getImage('load-screen')), -10); // TODO
                 
+                document.getElementById("input").style.visibility = "visible";
+                document.getElementById("load").style.visibility = "visible";
+                
                 me.input.unbindKey(me.input.KEY.B);
                 me.input.unbindKey(me.input.KEY.Q);
                 me.input.unbindKey(me.input.KEY.E);
@@ -23,25 +26,6 @@ game.LoadProfile = me.ScreenObject.extend({
                     
                 })));
 
-                this.handler = me.event.subscribe(me.event.KEYDOWN, function (action, keyCode, edge){
-                    if(action === "F1"){
-                        if(game.data.exp >= exp1cost){
-                       game.data.exp1 += 1;
-                       game.data.exp -= exp1cost;
-                       me.state.change(me.state.PLAY);
-                   }else{
-                       console.log("not enough experience");
-                   }
-                    }else if(action === "F2"){
-                        
-                    }else if(action === "F3"){
-                        
-                    }else if(action === "F4"){
-                        
-                    }else if(action === "F5"){
-                        me.state.change(me.state.PLAY);
-                    }
-                });
         
         },
 	
@@ -50,7 +34,8 @@ game.LoadProfile = me.ScreenObject.extend({
 	 *  action to perform when leaving this screen (state change)
 	 */
 	onDestroyEvent: function() {
-                
+                document.getElementById("input").style.visibility = "hidden";
+                document.getElementById("load").style.visibility = "hidden";
 	}
 });
 
