@@ -13,13 +13,6 @@ $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 $query = $_SESSION["connection"]->query("SELECT * FROM users WHERE username = '$username'");
 
-if($query) {
-        echo "Successfully created user: $username";
-    }
-    else {
-        echo "<p>" . $_SESSION["connection"]->error . "</p>";
-    }
-
 if($query->num_rows == 1) {
     $row = $query->fetch_array();
     
@@ -30,8 +23,8 @@ if($query->num_rows == 1) {
         $array["exp2"] = $row["exp2"];
         $array["exp3"] = $row["exp3"];
         $array["exp4"] = $row["exp4"];
-        
-        echo "<p>Login Successful!</p>";
+        $_SESSION["name"] = $username;
+        echo json_encode($array);
     }
     else {
         echo "<p>invalid username and password</p>";
