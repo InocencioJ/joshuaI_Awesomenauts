@@ -27,11 +27,11 @@ if($query->num_rows == 1) {
         echo json_encode($array);
     }
     else {
-        echo "<p>invalid username and password</p>";
+        echo "Invalid username and password";
     }
 }
 else {
-    echo "<p>Invalid username and password</p>";
+    echo "Invalid username and password";
 }
 ?>
 <body>
