@@ -1,5 +1,5 @@
 <?php
-require_one(__DIR__ . "/../model/config.php");
+require_once(__DIR__ . "/../model/cofig.php");
         
 $exp = filter_input(INPUT_POST, "exp", FILTER_SANITIZE_STRING);
 $exp1 = filter_input(INPUT_POST, "exp1", FILTER_SANITIZE_STRING);

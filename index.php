@@ -20,25 +20,25 @@
         </head>
 	<body>
 		<!-- Canvas placeholder -->
-		<div id="screen"></div>
-                
+                <div id="screen"></div>
+
                 <form id="input" method="post">
                     <div class="field">
                         <lable for="username">Username</lable>
                         <input type='text' name='username' id='username' autocomplete='off'>
-          
+
                     </div>
-                    
+
                     <div class='password'>
                         <label for='password'>Password</label>
                         <input type='password' name='password' id='password'>
                     </div>
-                    
+
                     <button type='button' id='register'>Register</button>
                     <button type='button' id='load'>Load</button>
                     <button type='button' id='mainmenu'>Main Menu</button>
                 </form>
-                      
+
          	<!-- melonJS Library -->
 		<!-- build:js js/app.min.js -->
 		<script type="text/javascript" src="lib/melonJS-1.1.0-min.js"></script>
@@ -67,31 +67,31 @@
                 <script type="text/javascript" src="js/screens/spendExp.js"></script>
 		<!-- /build -->
 		<!-- Bootstrap & Mobile optimization tricks -->
-		<script type="text/javascript">
-			window.onReady(function onReady() {
-				game.onload();
+                <script type="text/javascript">
+                        window.onReady(function onReady() {
+                                game.onload();
 
-				// Mobile browser hacks
-				if (me.device.isMobile && !navigator.isCocoonJS) {
-					// Prevent the webview from moving on a swipe
-					window.document.addEventListener("touchmove", function (e) {
-						e.preventDefault();
-						window.scroll(0, 0);
-						return false;
-					}, false);
+                                // Mobile browser hacks
+                                if (me.device.isMobile && !navigator.isCocoonJS) {
+                                        // Prevent the webview from moving on a swipe
+                                        window.document.addEventListener("touchmove", function (e) {
+                                                e.preventDefault();
+                                                window.scroll(0, 0);
+                                                return false;
+                                        }, false);
 
-					// Scroll away mobile GUI
-					(function () {
-						window.scrollTo(0, 1);
-						me.video.onresize(null);
-					}).defer();
+                                        // Scroll away mobile GUI
+                                        (function () {
+                                                window.scrollTo(0, 1);
+                                                me.video.onresize(null);
+                                        }).defer();
 
-					me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
-						window.scrollTo(0, 1);
-					});
-				}
-			});
-		</script>
+                                        me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+                                                window.scrollTo(0, 1);
+                                        });
+                                }
+                        });
+                </script>
                 
                 <script>
                 $("#mainmenu").bind("click", function(){

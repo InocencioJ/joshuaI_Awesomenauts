@@ -33,9 +33,3 @@ if($query->num_rows == 1) {
 else {
     echo "Invalid username and password";
 }
-?>
-<body>
-<div>
-<a href="/../inocencioJ-blog/index.php">Home</a>
-</div>
-</body>
