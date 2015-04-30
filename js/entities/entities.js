@@ -12,7 +12,7 @@ game.PlayerEntity = me.Entity.extend({
         
         this.renderable.setCurrentAnimation("idle");
     },
-    
+    //sets the height and width of the player
     setSuper: function(x, y){
         this._super(me.Entity, 'init', [x, y, {
                 image: "player",
@@ -25,20 +25,20 @@ game.PlayerEntity = me.Entity.extend({
                 }
             }]);
     },
-    
+    //sets the speed of the spear attack
     setPlayerTimers: function(){
         this.now = new Date().getTime();
         this.lastHit = this.now;
         this.lastSpear = this.now;
         this.lastAttack = new Date().getTime();
     },
-    
+    //sets the speed of the player
     setAttributes: function(){
         this.health = game.data.playerHealth;
         this.body.setVelocity(game.data.playerMoveSpeed, 20);
         this.attack = game.data.playerAttack;
     },
-    
+    //sets the animations of the player
     addAnimation: function(){
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
@@ -52,26 +52,25 @@ game.PlayerEntity = me.Entity.extend({
         this.dead = false;
         this.attacking = false;
     },
-    
+    //checks the if player is dead, if a key is pressed, or if player is moving
     update: function(delta){
          this.now = new Date().getTime();
          this.dead = this.checkIfDead();
          this.checkKeyPressesAndMove();
-         this.checkKeyPressAndMove();
          this.setAnimation();
         me.collision.check(this, true, this.collideHandler.bind(this), true);
         this.body.update(delta);
         this._super(me.Entity, "update", [delta]);
         return true;
     },
-    
+    //check if the player is dead or health is zero
     checkIfDead: function(){
           if(this.health <= 0){
             return true;
         }
         return false;
     },
-    
+    //checks if keys right, left, jump, or attack is pressed
     checkKeyPressesAndMove: function(){
          if (me.input.isKeyPressed("right")) {
             this.moveRight();
@@ -87,7 +86,7 @@ game.PlayerEntity = me.Entity.extend({
         }
        this.attacking = me.input.isKeyPressed("attack");
     },
-    
+    //moves the player to the right
     moveRight: function(){
         //adds to the position of the x by the velocity defined above in
             //setVelocity() and multiplying it by me.timer.tick
@@ -96,18 +95,18 @@ game.PlayerEntity = me.Entity.extend({
             this.facing = "right";
             this.flipX(true);
     },
-    
+    //moves the player to the left
     moveLeft: function(){
          this.facing = "left";
             this.body.vel.x-=this.body.accel.x *me.timer.tick;
             this.flipX(false);
     },
-    
+    //makes the player jump 
     jump: function(){
         this.jumping = true;
             this.body.vel.y -= this.body.accel.y * me.timer.tick;
     },
-    
+    //checks if the one of three skills are being used
     checkAbilityKeys: function() {
         if (me.inpt.isKeyPressed("skill1")) {
            // this.speedBurst();     
@@ -117,7 +116,7 @@ game.PlayerEntity = me.Entity.extend({
             this.throwSpear();
         }
     },
-    
+    //makes the spear move
     throwSpear: function(){
         if(this.lastSpear >= game.data.spearTimer && game.data.ability3 >= 0){
            this.lastSpear = this.now;
@@ -138,19 +137,21 @@ game.PlayerEntity = me.Entity.extend({
                 this.renderable.setAnimationFrame();
             }
         }
+        //if player is not attcking then the player is walking
        else if(this.body.vel.x !== 0 && !this.renderable.isCurrentAnimation("attack")) {
             if (!this.renderable.isCurrentAnimation("walk")) {
                 this.renderable.setCurrentAnimation("walk");
             }
+        //if the player is not attacking then the player is in idle
         }else if(!this.renderable.isCurrentAnimation("attack")){        
             this.renderable.setCurrentAnimation("idle");
         }  
     },
-    
+    //allows the player to lose health
     loseHealth: function(damage){
         this.health = this.health - damage;
     },
-    
+    //if the player collides with a creep or object
     collideHandler: function(response){
         if(response.b.type==='EnemyBaseEntity'){
             this.collideWithEnemyBase(response);
@@ -158,7 +159,7 @@ game.PlayerEntity = me.Entity.extend({
           this.collideWithEnemyCreep(response);
        }
     },
-    
+    //if player collides with enemy base and attacks then the base looses health
     collideWithEnemyBase: function(response){
         var ydif = this.pos.y - response.b.pos.y;
             var xdif = this.pos.x - response.b.pos.x;
@@ -179,7 +180,7 @@ game.PlayerEntity = me.Entity.extend({
             response.b.loseHealth(game.data.playerAttack);
         }
     },
-    
+    //will stop movement of player or creep if collides
     collideWithEnemyCreep: function(response){
           var xdif = this.pos.x - response.b.pos.x;
           var ydif = this.pos.y - response.b.pos.y;
@@ -192,7 +193,7 @@ game.PlayerEntity = me.Entity.extend({
           
           
     },
-    
+    //sets the speed of stopMovement function
     stopMovement: function(xdif){
          if(xdif>0){
               if(this.facing==="left"){

@@ -21,7 +21,7 @@ game.PlayerBaseEntity = me.Entity.extend({
         this.renderable.setCurrentAnimation("idle");
     
     },
-    
+    //if the players base is destroyed then the player looses
     update: function(delta) {
         if(this.health<=0){
             this.broken = true;

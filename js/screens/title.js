@@ -11,7 +11,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 this.font = new me.Font("Arial", 46, "white");
                 me.input.registerPointerEvent('pointerdown', this, this.newGame.bind(this), true);
             },
-                    
+                    //adds a text "START NEW GAME" to the home page
                     draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "START A NEW GAME", this.pos.x, this.pos.y);
             },
@@ -32,7 +32,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 this.font = new me.Font("Arial", 46, "white");
                 me.input.registerPointerEvent('pointerdown', this, this.newGame.bind(this), true);
             },
-                    
+                    //adds a "CONTINUE" to the game
                     draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "CONTINUE", this.pos.x, this.pos.y);
             },

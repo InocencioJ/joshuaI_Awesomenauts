@@ -26,11 +26,11 @@ game.EnemyCreep = me.Entity.extend({
     this.renderable.addAnimation("walk", [3, 4, 5], 100);
     this.renderable.setCurrentAnimation("walk");
     },
-    
+    //if damaged the creep will loose health
     loseHealth: function(damage){
         this.health = this.health - damage;
     },
-    
+    //if health is zero then creep is deleted
     update: function(delta){
         if(this.health <= 0){
             me.game.world.removeChild(this);
@@ -62,7 +62,7 @@ game.EnemyCreep = me.Entity.extend({
             if((this.now-this.lastHit >= 1000)){
                 //updates the lasthit timer
                 this.lastHit = this.now;
-                //makes the player base call its  loseHealth function and passes
+                //makes the player base call its loseHealth function and passes
                 //damage of 1
                 response.b.loseHealth(game.data.enemyCreepAttack);
             }

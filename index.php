@@ -21,19 +21,19 @@
 	<body>
 		<!-- Canvas placeholder -->
                 <div id="screen"></div>
-
+                    <!--allows the user to input a username to save their game-->
                 <form id="input" method="post">
                     <div class="field">
                         <lable for="username">Username</lable>
                         <input type='text' name='username' id='username' autocomplete='off'>
 
                     </div>
-
+                     <!--allows the user to input a password-->
                     <div class='password'>
                         <label for='password'>Password</label>
                         <input type='password' name='password' id='password'>
                     </div>
-
+                     <!--are buttons to links to different screens-->
                     <button type='button' id='register'>Register</button>
                     <button type='button' id='load'>Load</button>
                     <button type='button' id='mainmenu'>Main Menu</button>
@@ -49,7 +49,7 @@
 		<!-- Game Scripts -->
 		<script type="text/javascript" src="js/game.js"></script>
 		<script type="text/javascript" src="js/resources.js"></script>
-
+                <!--connects pages to each other-->
 		<script type="text/javascript" src="js/entities/entities.js"></script>
                 <script type="text/javascript" src="js/entities/EnemyBaseEntity.js"></script>
                 <script type="text/javascript" src="js/entities/PlayerBaseEntity.js"></script>
@@ -61,6 +61,8 @@
 		<script type="text/javascript" src="js/entities/HUD.js"></script>
                 <script type="text/javascript" src="js/screens/loadProfile.js"></script>
                 <script type="text/javascript" src="js/screens/newProfile.js"></script>
+                <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
+                
                 
 		<script type="text/javascript" src="js/screens/title.js"></script>
 		<script type="text/javascript" src="js/screens/play.js"></script>
